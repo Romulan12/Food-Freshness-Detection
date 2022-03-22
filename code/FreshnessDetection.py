@@ -1,16 +1,17 @@
-import flask
-from flask import Flask, jsonify, request
-import requests
-import  os
-from os.path import dirname, join
+import configparser
 import datetime
-
 import json
 import logging
-import configparser
+import os
 import time
-from detection_model import modelPrediction
+from os.path import dirname, join
+
+import flask
+import requests
+from flask import Flask, jsonify, request
 from waitress import serve
+
+from detection_model import modelPrediction
 
 config = configparser.RawConfigParser()
 config.read(os.path.join(os.getcwd() , "../config/config.property"))

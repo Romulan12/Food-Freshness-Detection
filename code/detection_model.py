@@ -1,18 +1,15 @@
-import tensorflow as tf
+import glob
 
+import numpy as np
+import tensorflow as tf
+from keras import applications
+from keras.applications.inception_v3 import (decode_predictions,
+                                             preprocess_input)
+from keras.layers import Dense, Dropout, GlobalAveragePooling2D
+from keras.preprocessing import image
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
-
-from keras.layers import Dense, Dropout, GlobalAveragePooling2D
-from keras import applications
-from keras.applications.inception_v3 import preprocess_input, decode_predictions
-#import numpy as np
-
-from keras.preprocessing import image
-import numpy as np
-import glob
-
 
 def modelPrediction(input_img, img_height, img_width, num_classes,class_names, logger):
     model = Sequential([
